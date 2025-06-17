@@ -1,0 +1,12 @@
+{
+  "name": "support-tickets",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.js"
+  },
+  "author": "Weliton Duarte",
+  "license": "ISC",
+  "description": "API support tickets"
+}
