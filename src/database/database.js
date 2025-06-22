@@ -19,7 +19,6 @@ export class Database {
     fs.writeFile(DATABASE_PATH, JSON.stringify(this.#database))
   }
 
-
   //insere as tabelas no banco de dados
   insert(table, data) {
     if (Array.isArray(this.#database[table])) {
@@ -29,5 +28,10 @@ export class Database {
     }
     this.#persist()
 
+  }
+
+  select(table) {
+    let data = this.#database[table] ?? []
+    return data
   }
 }
