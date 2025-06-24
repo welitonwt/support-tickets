@@ -42,4 +42,18 @@ export class Database {
     }
     return data
   }
+
+  update(table, id, data){
+      const rowIndex = this.#database[table].findIndex((row) => 
+      row.id === id
+    )
+    if(rowIndex){
+      this.#database[table][rowIndex] = {
+        ...this.#database[table][rowIndex],
+        ...data
+      }
+      
+      this.#persist()
+    }
+  }
 }
