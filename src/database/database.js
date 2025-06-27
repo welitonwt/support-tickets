@@ -47,7 +47,7 @@ export class Database {
       const rowIndex = this.#database[table].findIndex((row) => 
       row.id === id
     )
-    if(rowIndex){
+    if(rowIndex  > -1){
       this.#database[table][rowIndex] = {
         ...this.#database[table][rowIndex],
         ...data
@@ -55,5 +55,17 @@ export class Database {
       
       this.#persist()
     }
+  }
+
+  delete(table, id){
+    const rowIndex = this.#database[table].findIndex((row) => 
+      row.id === id
+    )
+
+    if(rowIndex  > -1){
+      this.#database[table].splice(rowIndex, 1)
+      this.#persist()
+    }
+
   }
 }
